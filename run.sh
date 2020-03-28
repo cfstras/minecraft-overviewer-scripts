@@ -31,7 +31,7 @@ echo "======== compiling done ========="
 
 echo "======== uploading world ========="
 $SSH $game_ssh "rsync -e '$SSH' --del -az --partial $game_server_world_path $compute_ssh:$target/"
-$SSH $game_ssh "rsync -e '$SSH' --del -az --partial $game_server_world_path $compute_ssh:/output/"
+$SSH $game_ssh "rsync -e '$SSH' --del -az --partial $game_server_output_path $compute_ssh:/output/"
 echo "======== uploading done ========="
 
 

@@ -1,7 +1,7 @@
-import multiprocessing
-import math
-# use at least one core more, for high-core machines, use 10% more
-processes = int(math.ceil(multiprocessing.cpu_count() * 1.1))
+#import multiprocessing
+#import math
+## use at least one core more, for high-core machines, use 10% more
+#processes = int(math.ceil(multiprocessing.cpu_count() * 1.1))
 
 global escape
 from .observer import ProgressBarObserver
@@ -72,8 +72,6 @@ renders["night"] = {
     #"imgformat": "webp",
     "imgformat": "jpg",
     "imgquality": "80",
-
-    'overlay': [normal]
 }
 
 """
