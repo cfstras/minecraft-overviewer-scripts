@@ -4,6 +4,12 @@ This repo contains scripts to do a one-off render on a powerful remote box.
 
 ## How To
 
+1. If you haven't already, set up SSH-Key authentication on your game server.  
+    - Make sure you can log in without a password.
+    - You will also need an SSH-Agent running, with your private key(s) added.
+    - The script will use the agent in order to transfer data directly between
+      your gameserver and your compute server, without going through your local computer.
+
 1. Run `./run.sh` once, to create the example config.
 
 1. Open `variables.sh` and put in your values.
@@ -21,10 +27,10 @@ This repo contains scripts to do a one-off render on a powerful remote box.
     - The disk should be big enough to hold your world and the output.
       - The output will be around 2-3x the size of your world.
 
-1. Make sure you can connect to the compute server.
+1. Make sure you can connect to the compute server with SSH-Key authentication.
     - Set the IP in `variables.sh` under `compute_server = ...`
 
-1. Run `./run.sh`:  
+1. Call `./run.sh` on your local machine  
   The script will now do the following steps:
     1. Compile and install overviewer on the compute server
     1. Transfer the world directly from the game server to the compute server
