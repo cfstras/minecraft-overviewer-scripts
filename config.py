@@ -90,21 +90,21 @@ renders["night"] = {
     **base_render,
 }
 
-# renders["rails"] = {
-#     'world': "Overworld",
-#     'rendermode': [#Base(),
-#         Hide(blocks=[x for x in range(0,1000) if x not in [27,28,66]]),
-#         MineralOverlay(
-#             minerals = [
-#                 (27, (255, 0, 0)),
-#                 (28, (255, 0, 0)),
-#                 (66, (255, 0, 0))]
-#             ),
-#         EdgeLines()],
-#     "dimension": "overworld",
-#     'title': "Schnellbahnnetz",
-#     'overlay': [normal]
-# }
+renders["rails"] = {
+    'world': "Overworld",
+    'rendermode': [#Base(),
+        Hide(blocks=[x for x in range(0,1000) if x not in [27,28,66]]),
+        MineralOverlay(
+            minerals = [
+                (27, (255, 0, 0)),
+                (28, (255, 0, 0)),
+                (66, (255, 0, 0))]
+            ),
+        EdgeLines()],
+    "dimension": "overworld",
+    'title': "Schnellbahnnetz",
+    'overlay': [normal]
+}
 
 sys.path.append(os.path.curdir + "/Minecraft-Overviewer")
 

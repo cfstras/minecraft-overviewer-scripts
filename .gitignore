@@ -2,3 +2,4 @@ variables.sh
 world
 output
 Minecraft-Overviewer
+*.code-workspace
