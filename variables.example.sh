@@ -17,3 +17,6 @@ export compute_server=99.99.99.99
 
 # only root supported for now, to run apt
 export compute_server_user=root
+
+# bandwidth limit in KB/s, for local sync and render upload
+export bwlimit=100000
