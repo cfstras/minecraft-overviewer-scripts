@@ -1,14 +1,17 @@
 #!/bin/bash
 set -euxo pipefail
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+cd "$SCRIPT_DIR"
 
 source variables.sh
 
 # build from source for maximum performance
 apt update
-apt install -y git python3-pip python3-pil python3-dev python3-numpy curl
+apt install -y git python3-pip python3-pil python3-dev python3-numpy curl build-essential
 
 if [[ -d "$overviewer_path" ]]; then
     cd "$overviewer_path"
+    git config pull.rebase false
     git pull
 else
     git clone https://github.com/overviewer/Minecraft-Overviewer.git "$overviewer_path"
