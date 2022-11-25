@@ -1,18 +1,18 @@
 #!/bin/bash
 set -euxo pipefail
 
+source variables.sh
+
 # build from source for maximum performance
 apt update
 apt install -y git python3-pip python3-pil python3-dev python3-numpy curl
 
-overviewer=/overviewer
-
-if [[ -d $overviewer ]]; then
-    cd $overviewer
+if [[ -d "$overviewer_path" ]]; then
+    cd "$overviewer_path"
     git pull
 else
-    git clone https://github.com/overviewer/Minecraft-Overviewer.git $overviewer
-    cd $overviewer
+    git clone https://github.com/overviewer/Minecraft-Overviewer.git "$overviewer_path"
+    cd "$overviewer_path"
 fi
 
 # note: only really necessary if we installed pillow with pip

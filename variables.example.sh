@@ -2,6 +2,9 @@
 
 # replace these variables!
 
+# Path to checkout overviewer
+overviewer_path=/overviewer
+
 # minecraft server address
 export game_server=my-minecraft-server.com
 export game_server_user=mc

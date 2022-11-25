@@ -1,5 +1,8 @@
 #!/bin/bash
 set -euo pipefail
-cd Minecraft-Overviewer
+
+source variables.sh
+
+cd "$overviewer_path"
 nice -n10 ./overviewer.py --config=../config.py --genpoi
-nice -n10 ./overviewer.py --config=..//config.py
+nice -n10 ./overviewer.py --config=../config.py

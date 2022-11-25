@@ -18,7 +18,7 @@ global escape
 BASE = "../"
 
 outputdir = BASE + "output"
-worlds["Overworld"] = BASE + "/world/"
+worlds["Overworld"] = BASE + "world/"
 
 if not os.path.exists(outputdir):
     os.makedirs(outputdir)
@@ -106,7 +106,7 @@ renders["rails"] = {
     'overlay': [normal]
 }
 
-sys.path.append(os.path.curdir + "/Minecraft-Overviewer")
+sys.path.append(os.path.dirname(__file__) + "/Minecraft-Overviewer")
 
 server_cache = os.path.join(outputdir, "usercache.json")
 if os.path.exists(server_cache):
