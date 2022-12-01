@@ -14,7 +14,6 @@ from html import escape
 from .observer import ProgressBarObserver
 global escape
 
-
 BASE = "../"
 
 outputdir = BASE + "output"

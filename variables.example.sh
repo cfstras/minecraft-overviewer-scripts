@@ -5,6 +5,8 @@
 # Path to checkout overviewer
 overviewer_path=/overviewer
 
+overviewer_args=()
+
 # minecraft server address
 export game_server=my-minecraft-server.com
 export game_server_user=mc
