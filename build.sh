@@ -3,7 +3,12 @@ set -euxo pipefail
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 cd "$SCRIPT_DIR"
 
+#shellcheck disable=SC1091
 source variables.sh
+overviewer_path=${overviewer_path:-"$PWD/overviewer"}
+MINECRAFT_VERSION=${MINECRAFT_VERSION:-"$VERSION"}  # for backwards compatibility
+MINECRAFT_VERSION=${MINECRAFT_VERSION:-1.19.2}
+TEXTURE_FILE=${TEXTURE_FILE:-~/.minecraft/versions/${MINECRAFT_VERSION}/${MINECRAFT_VERSION}.jar}
 
 # build from source for maximum performance
 apt update
@@ -26,10 +31,7 @@ fi
 export CFLAGS="-Ofast"
 python3 setup.py build
 
-VERSION=1.19.2
-TEXTURE_FILE=~/.minecraft/versions/${VERSION}/${VERSION}.jar
-
-if [[ ! -s $TEXTURE_FILE ]]; then
-    mkdir -p ~/.minecraft/versions/${VERSION}/
-    curl -fSL https://overviewer.org/textures/${VERSION} -o $TEXTURE_FILE
+if [[ ! -s "$TEXTURE_FILE" ]]; then
+    mkdir -p ~/.minecraft/versions/"${MINECRAFT_VERSION}"/
+    curl -fSL "https://overviewer.org/textures/${MINECRAFT_VERSION}" -o "$TEXTURE_FILE"
 fi
