@@ -8,7 +8,7 @@ source variables.sh
 overviewer_path=${overviewer_path:-"$PWD/overviewer"}
 declare -ga overviewer_args=( "${overviewer_args[@]}" )
 
-if pgrep run_local.sh; then
+if pgrep run_local.sh | grep -v $$; then
     echo "already running!"
     exit
 fi
